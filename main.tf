@@ -63,9 +63,11 @@ resource "aws_instance" "app_server" {
                           echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDegaIerOcP4QiUEOjKmzjBtNo6FgK0WCkh4d5sklfoxJXIkZFk1gTE0eQelC1UA+T9VPGfpEJuu06Rj26TLnvY7brnEtlQoi8C0G53+LDEVRA5T3KaB8nSOwpbX7DhhoB0EmgnVUfSZ/nuvSH6caxgGaaqlmQd7fHPzJ5iEEBsG0qlJ0XiTwWpzV2vUUKoHmX5FpJC0PWCXgkiAUb0Xhw+WNj3Ia0Vy9Qfy2/fwKD+SBDODKdUb6D+QLrxNpya4RgByMXcfwl6/nnqNSHYYD83zpemo+IG45bX9iSOsa4jiFmgYBDEE9OsOi/hAVGp4I0YxuYK8DjtP9gpZvJDMiux9NTN4imok/azOSYpEBQI5iNeWeHX4S52k3bTd8olOCw2t+V5OBJasuDDbdUoXnAkuGiGCI9sWCoM+wizz8n//OJoDRplLr5hzkiyIvANR5C72FGXRsJ7EyWXJV8MTO6GDYr7QwsoXT/UAJnXnqev9h8S6gXxIzsi5pdFZnhEIRE= ubuntu@ip-172-31-13-31" > id_rsa.pub
                           cd /home/ubuntu/
                           git clone git@github.com:nerimarcelo/curso-git-alura.git
+                          cd curso-git-alura
+                          git init
                           git checkout web-server
                           echo "Feito com o Terraform" > index2.html
-                          nohup busybox httpd -p 8080 &
+                          nohup busybox httpd -f -p 8080 2&>1 saida.out &
                     
                     EOF
   tags = {
