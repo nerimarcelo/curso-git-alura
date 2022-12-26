@@ -1,8 +1,16 @@
 - hosts: terraform-ansible
   tasks:
-  - name: criando o arquivo
-    copy:
-      dest: /home/ubuntu/index.html
-      content: <h1> Feito com o Terraform e Ansible </h1>
-  - name: criando servidor
-    shell: "nohup busybox httpd -f -p 8080 &"
+  - name: Instalando python3, virtualenv
+    apt:
+      pkg:
+      - python3
+      - virtualenv
+      - htop
+      - glances
+      update_cache: yes
+    become: yes
+  
+  - name: Altera meu nome
+    shell: "hostnamectl set-hostname ubuntu-dev-python"
+    become: yes
+  

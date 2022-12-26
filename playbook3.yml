@@ -1,0 +1,8 @@
+- hosts: terraform-ansible
+  tasks:
+    - name: instala nmap
+      apt:
+        pkg:
+        - fping
+        update_cache: yes
+      become: yes

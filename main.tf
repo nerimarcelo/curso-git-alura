@@ -26,7 +26,7 @@ resource "aws_instance" "app_server" {
   #                  nohup busybox httpd -f -p 8081
   #                  EOF
   tags = {
-    Name = "alura-aws-ubuntu"                       # Nome da instância
+    Name = "Alura_Ansible_Terraform_Python"                       # Nome da instância_
   }
 }
  
