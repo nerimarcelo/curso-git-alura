@@ -18,13 +18,13 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"                        # Tipo da instância, o t2.micro é tier free
   key_name      = "aws-marcelo"                     # Associa um par de chaves ssh a instancia. Esse par tem que estar criado lá na AWS. Não precisa do formato .pem. Precisa estar na mesma pasta =/ 
                                                     # User_data é para por os comandos shell
-  user_data     = <<-EOF
-                    #!/bin/bash
-                    cd /home/ubuntu/
-                    hostnamectl set-hostname UBUNTAO
-                    echo "Feito com o Terraform Tranformers" > index.html
-                    nohup busybox httpd -f -p 8081
-                    EOF
+  #user_data     = <<-EOF
+  #                  #!/bin/bash
+  #                  cd /home/ubuntu/
+  #                  hostnamectl set-hostname UBUNTAO
+  #                  echo "Feito com o Terraform Tranformers" > index.html
+  #                  nohup busybox httpd -f -p 8081
+  #                  EOF
   tags = {
     Name = "alura-aws-ubuntu"                       # Nome da instância
   }
