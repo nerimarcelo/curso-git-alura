@@ -1,5 +1,5 @@
 - hosts: terraform-ansible
-  task:
+  tasks:
   - name: criando o arquivo
     copy:
       dest: /home/ubuntu/index.html
